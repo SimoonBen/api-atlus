@@ -1,0 +1,234 @@
+<!DOCTYPE html>
+<html lang="en-GB">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description"
+    content="API Atlas is an interactive JavaScript API dashboard demonstrating live REST API integrations for weather, currency, movies, GitHub profiles, jokes and more.">
+  <meta name="robots" content="index, follow, max-image-preview:large, max-snippet:-1, max-video-preview:-1">
+  <meta name="theme-color" content="#0b1220">
+  <meta property="og:type" content="website">
+  <meta property="og:site_name" content="API Atlas">
+  <meta property="og:title" content="API Atlas | Interactive JavaScript API Dashboard">
+  <meta property="og:description"
+    content="Explore live REST API integrations built with vanilla JavaScript, Fetch and responsive web design.">
+  <meta name="twitter:card" content="summary">
+  <meta name="twitter:title" content="API Atlas | Interactive JavaScript API Dashboard">
+  <meta name="twitter:description"
+    content="Explore live REST API integrations built with vanilla JavaScript, Fetch and responsive web design.">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link rel="stylesheet" href="styles.css">
+  <link rel="icon" type="image/svg+xml" href="/favicon.svg">
+  <title>API Atlas | JavaScript API Dashboard</title>
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "WebApplication",
+    "name": "API Atlas",
+    "description": "An interactive JavaScript dashboard demonstrating live REST API integrations.",
+    "applicationCategory": "DeveloperApplication",
+    "operatingSystem": "Any",
+    "browserRequirements": "Requires JavaScript and a modern web browser.",
+    "featureList": [
+      "Random dog and cat image APIs",
+      "Current weather lookup",
+      "GBP to USD currency conversion",
+      "Trending movie discovery",
+      "GitHub developer profile lookup",
+      "Random joke API",
+      "Public API discovery"
+    ]
+  }
+  </script>
+</head>
+
+<body>
+  <div class="app-shell">
+    <header class="site-header">
+      <a class="brand" href="/" aria-label="API Atlas home"><span class="brand-mark">&lt;/&gt;</span><span>API
+          Atlas</span></a>
+      <span class="header-status"><span class="status-dot"></span> Live integrations</span>
+    </header>
+    <main>
+      <section class="hero" aria-labelledby="page-title">
+        <div class="hero-copy">
+          <p class="eyebrow">JavaScript · Fetch · REST</p>
+          <h1 id="page-title">One dashboard.<br><span>Eight APIs.</span></h1>
+          <p class="hero-text">A hands-on collection of live API experiments, built to make data feel useful, playful
+            and easy to explore.</p>
+          <div class="hero-tags" aria-label="Technologies used"><span>Vanilla JavaScript</span><span>Async /
+              Await</span><span>Responsive UI</span></div>
+        </div>
+        <div class="hero-orbit" aria-hidden="true">
+          <div class="orbit-ring ring-one"></div>
+          <div class="orbit-ring ring-two"></div>
+          <div class="orbit-core"><span>API</span><small>explorer</small></div><span
+            class="orbit-chip chip-one">JSON</span><span class="orbit-chip chip-two">FETCH</span><span
+            class="orbit-chip chip-three">LIVE</span>
+        </div>
+      </section>
+      <section class="dashboard-heading" aria-labelledby="experiments-title">
+        <div>
+          <p class="section-kicker">The collection</p>
+          <h2 id="experiments-title">Try an experiment</h2>
+        </div>
+        <p class="section-note">Select a card to make a live request.</p>
+      </section>
+      <div class="grid-container" aria-label="API experiments">
+        <section class="grid-item card-dog" id="dog-api">
+          <div class="card-heading"><span class="card-icon animal-icon"><img
+                src="https://images.unsplash.com/photo-1552053831-71594a27632d?auto=format&amp;fit=crop&amp;w=100&amp;h=100&amp;q=80"
+                alt="A friendly dog" loading="lazy"></span>
+            <div>
+              <a class="api-link" href="https://dog.ceo/dog-api/" target="_blank" rel="noopener noreferrer">Dog API</a>
+              <h2>Random dog</h2>
+            </div>
+          </div>
+          <p class="card-description">Meet a new four-legged friend.</p><button id="fetchDog" type="button">Get a
+            dog</button>
+          <div class="output" id="dog-output">
+            <p class="output-placeholder">Your result will appear here</p>
+          </div>
+        </section>
+        <section class="grid-item card-cat" id="cat-api">
+          <div class="card-heading"><span class="card-icon animal-icon"><img
+                src="https://images.unsplash.com/photo-1519052537078-e6302a4968d4?auto=format&amp;fit=crop&amp;w=100&amp;h=100&amp;q=80"
+                alt="A curious cat" loading="lazy"></span>
+            <div>
+              <a class="api-link" href="https://cataas.com/" target="_blank" rel="noopener noreferrer">Cataas</a>
+              <h2>Random cat</h2>
+            </div>
+          </div>
+          <p class="card-description">A little feline surprise, on demand.</p><button id="fetchCat" type="button">Get a
+            cat</button>
+          <div class="output" id="cat-output">
+            <p class="output-placeholder">Your result will appear here</p>
+          </div>
+        </section>
+        <section class="grid-item card-weather" id="weather-api">
+          <div class="card-heading"><span class="card-icon weather-icon"><img
+                src="https://images.unsplash.com/photo-1499346030926-9a72daac6c63?auto=format&amp;fit=crop&amp;w=100&amp;h=100&amp;q=80"
+                alt="Sun shining through clouds" loading="lazy"></span>
+            <div>
+              <a class="api-link" href="https://open-meteo.com/" target="_blank"
+                rel="noopener noreferrer">Open-Meteo</a>
+              <h2>Weather now</h2>
+            </div>
+          </div>
+          <p class="card-description">Check the current temperature anywhere.</p>
+          <div class="control-row"><label class="sr-only" for="locationInput">Location</label><input type="text"
+              id="locationInput" placeholder="e.g. London" aria-label="Location" autocomplete="address-level2"><button
+              id="getWeather" type="button">Search</button></div>
+          <div class="output" id="weather-output" aria-live="polite">
+            <p class="output-placeholder">Enter a location to begin</p>
+          </div>
+        </section>
+        <section class="grid-item card-currency" id="currency-api">
+          <div class="card-heading"><span class="card-icon">💱</span>
+            <div>
+              <a class="api-link" href="https://www.frankfurter.app/docs/" target="_blank"
+                rel="noopener noreferrer">Frankfurter</a>
+              <h2>Currency converter</h2>
+            </div>
+          </div>
+          <p class="card-description">Convert an amount between pounds and dollars.</p>
+          <div class="control-row currency-row">
+            <div class="currency-selects"><label class="sr-only" for="currencyFrom">Convert from</label><select
+                id="currencyFrom" aria-label="Convert from">
+                <option value="GBP">GBP</option>
+                <option value="USD">USD</option>
+              </select><label class="sr-only" for="currencyTo">Convert to</label><select id="currencyTo"
+                aria-label="Convert to">
+                <option value="USD">USD</option>
+                <option value="GBP">GBP</option>
+              </select></div>
+            <div class="currency-entry"><label class="sr-only" for="amountInput">Amount to convert</label><input
+                type="number" id="amountInput" placeholder="Amount" aria-label="Amount to convert" min="0"
+                inputmode="decimal"><button id="getExchange" type="button">Convert</button></div>
+          </div>
+          <div class="output" id="currency-output" aria-live="polite">
+            <p class="output-placeholder">Enter an amount to begin</p>
+          </div>
+        </section>
+        <section class="grid-item card-movies card-wide" id="movies-api">
+          <div class="card-heading"><span class="card-icon">🎬</span>
+            <div>
+              <a class="api-link" href="https://developer.themoviedb.org/docs" target="_blank"
+                rel="noopener noreferrer">The Movie Database</a>
+              <h2>The top three trending movies this week </h2>
+            </div>
+          </div>
+          <div class="card-action">
+            <p class="card-description">What the world is watching this week.</p><button id="get-movies"
+              type="button">Show movies</button>
+          </div>
+          <div class="output movie-output" id="movies-output">
+            <p class="output-placeholder">Your movie picks will appear here</p>
+          </div>
+        </section>
+
+        <section class="grid-item card-github" id="github-api">
+          <div class="card-heading"><span class="card-icon github-icon" aria-hidden="true"><svg viewBox="0 0 24 24"
+                role="img">
+                <path
+                  d="M12 .3a12 12 0 0 0-3.79 23.39c.6.11.82-.26.82-.58v-2.26c-3.34.73-4.04-1.61-4.04-1.61-.55-1.39-1.34-1.76-1.34-1.76-1.09-.75.08-.74.08-.74 1.2.08 1.84 1.23 1.84 1.23 1.07 1.83 2.81 1.3 3.5.99.11-.77.42-1.3.76-1.6-2.67-.3-5.47-1.34-5.47-5.93 0-1.31.47-2.38 1.24-3.22-.12-.3-.54-1.52.12-3.18 0 0 1.01-.32 3.3 1.23a11.5 11.5 0 0 1 6 0c2.29-1.55 3.3-1.23 3.3-1.23.66 1.66.24 2.88.12 3.18.77.84 1.24 1.91 1.24 3.22 0 4.6-2.8 5.62-5.48 5.92.43.37.81 1.1.81 2.22v3.29c0 .32.22.7.83.58A12 12 0 0 0 12 .3Z" />
+              </svg></span>
+            <div>
+              <a class="api-link" href="https://docs.github.com/en/rest" target="_blank"
+                rel="noopener noreferrer">GitHub API</a>
+              <h2>Developer profile</h2>
+            </div>
+          </div>
+          <p class="card-description">Look up an open-source contributor.</p>
+          <div class="control-row"><label class="sr-only" for="userName">GitHub username</label><input type="text"
+              id="userName" placeholder="GitHub username" aria-label="GitHub username" value="simoonben"
+              autocomplete="username"><button id="getUser" type="button">Find</button></div>
+          <div class="output" id="github-output" aria-live="polite">
+            <p class="output-placeholder">Profile details will appear here</p>
+          </div>
+
+        </section>
+        <section class="grid-item card-joke" id="joke-api">
+          <div class="card-heading"><span class="card-icon joke-icon"><img
+                src="https://images.unsplash.com/photo-1534528741775-53994a69daeb?auto=format&amp;fit=crop&amp;w=100&amp;h=100&amp;q=80"
+                alt="A laughing person's face" loading="lazy"></span>
+            <div>
+              <a class="api-link" href="https://jokeapi.dev/" target="_blank" rel="noopener noreferrer">JokeAPI</a>
+              <h2>Random joke</h2>
+            </div>
+          </div>
+          <p class="card-description">A quick break, fetched from the web.</p><button id="get-joke" type="button">Tell
+            me one</button>
+          <div class="output" id="joke-output">
+            <p class="output-placeholder">Your joke will appear here</p>
+          </div>
+        </section>
+        <section class="grid-item card-public" id="public-api">
+          <div class="card-heading"><span class="card-icon">📚</span>
+            <div>
+              <a class="api-link" href="https://freeapi.today/" target="_blank" rel="noopener noreferrer">Free API
+                Directory</a>
+              <h2>API discovery</h2>
+            </div>
+          </div>
+          <p class="card-description">Find inspiration for your next build.</p><button id="get-api"
+            type="button">Discover an API</button>
+          <div class="output" id="api-output">
+            <p class="output-placeholder">A random API will appear here</p>
+          </div>
+        </section>
+      </div>
+    </main>
+    <noscript>
+      <p class="noscript-message">API Atlas is an interactive JavaScript API dashboard. Enable JavaScript to use the
+        live weather, currency, movie, GitHub, animal, joke and public API demonstrations.</p>
+    </noscript>
+    <footer class="site-footer"><span>API Atlas</span><span>Built with curiosity &amp; vanilla JavaScript</span>
+    </footer>
+  </div>
+  <script type="module" src="/script.js"></script>
+</body>
+
+</html>
