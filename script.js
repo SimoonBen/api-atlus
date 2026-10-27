@@ -320,8 +320,7 @@ const fetchMovies = async () => {
               }</p>
               <p>${movie.overview || 'No overview available.'}</p>
             </div>
-          </article>
-        `,
+          </article>`,
       )
       .join('');
 
